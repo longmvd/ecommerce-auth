@@ -1,0 +1,4 @@
+{
+  "RoleBL_GetRolesByUserID": "SELECT r.* FROM role r INNER JOIN user_role ur ON r.RoleID = ur.RoleID WHERE ur.UserID = @UserID",
+  "UserBL_ValidateDuplicated": "SELECT * FROM user u WHERE u.UserName = @UserName OR u.Email = @Email OR PhoneNumber = @PhoneNumber"
+}
