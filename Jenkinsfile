@@ -5,7 +5,11 @@ pipeline {
     stages {
         stage('Clone code') {
             steps {
-                git branch: 'main', credentialsId: 'github-longmvd', url: 'https://github.com/longmvd/ecommerce-auth.git'
+                script {
+                    git branch: 'main', credentialsId: 'github-longmvd', url: 'https://github.com/longmvd/ecommerce-auth.git'
+                    sh 'rm -r Lib'
+                    sh 'cp -R ../Lib .'
+                }
             }
         }
 
