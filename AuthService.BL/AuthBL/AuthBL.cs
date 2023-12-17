@@ -35,7 +35,7 @@ namespace AuthService.BL.AuthBL
             var response = new ServiceResponse();
             if (string.IsNullOrWhiteSpace(request.UserName) || string.IsNullOrWhiteSpace(request.Password))
             {
-                response.OnError(new { });
+                response.OnError(new ErrorResponse());
             }
             else
             {
@@ -48,7 +48,7 @@ namespace AuthService.BL.AuthBL
                     
                     if(user == null)
                     {
-                        response.OnError(new {ErrorMessage = "User name or password is invalid"});
+                        response.OnError(new ErrorResponse() {ErrorMessage = "User name or password is invalid"});
                     }
                     else
                     {

@@ -54,7 +54,7 @@ namespace AuthService.API.Controllers
 
             if(info == null)
             {
-                response.OnError(info);
+                response.OnError(new ErrorResponse() { Data = info });
                 return BadRequest(response);
             }
             else
