@@ -12,7 +12,7 @@ pipeline {
                     // Check if the directory exists before attempting to delete
                     if (fileExists(directoryToDelete)) {
                         // Remove the directory
-                        deleteDir()
+                        deleteDir(directoryToDelete)
                     }
                     sh 'cp -R ../Lib .'
                 }
