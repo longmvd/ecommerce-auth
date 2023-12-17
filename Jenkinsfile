@@ -7,7 +7,13 @@ pipeline {
             steps {
                 script {
                     git branch: 'main', credentialsId: 'github-longmvd', url: 'https://github.com/longmvd/ecommerce-auth.git'
-                    sh 'rm -r Lib'
+                    def directoryToDelete = 'Lib'
+
+                    // Check if the directory exists before attempting to delete
+                    if (fileExists(directoryToDelete)) {
+                        // Remove the directory
+                        deleteDir()
+                    }
                     sh 'cp -R ../Lib .'
                 }
             }
